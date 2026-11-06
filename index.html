@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Agent – real jobs, scam-checked</title>
+<meta name="description" content="Finds admin, data capture, team leader and receptionist jobs paying R8,000+ and checks each one for scam red flags.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <div class="brand"><span class="mark" aria-hidden="true">✓</span> My Agent</div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" id="tab-find" aria-selected="true" aria-controls="panel-find">Find jobs</button>
+      <button role="tab" id="tab-check" aria-selected="false" aria-controls="panel-check">Check an ad</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>Jobs that are real, paying R8,000 or more.</h1>
+    <p>My Agent searches admin, data capture, team leader and receptionist roles, then reads each ad for scam warning signs before you apply.</p>
+  </section>
+
+  <section id="panel-find" role="tabpanel" aria-labelledby="tab-find" class="layout">
+    <form id="filters" class="filters">
+      <label>Role
+        <select id="role">
+          <option value="all">All four roles</option>
+          <option value="admin">Admin</option>
+          <option value="data capture">Data capture</option>
+          <option value="team leader">Team leader</option>
+          <option value="receptionist">Receptionist</option>
+        </select>
+      </label>
+      <label>Minimum pay per month (R)
+        <input id="minPay" type="number" min="0" step="500" value="8000" inputmode="numeric">
+      </label>
+      <label>Town or city
+        <input id="location" type="text" placeholder="e.g. Pretoria" autocomplete="off">
+      </label>
+      <label class="check"><input id="hideRisky" type="checkbox" checked> Hide likely scams</label>
+      <label class="check"><input id="unlisted" type="checkbox"> Include ads with no pay listed</label>
+      <button class="primary" type="submit">Search jobs</button>
+    </form>
+    <div class="results">
+      <p id="status" role="status" aria-live="polite">Set your filters and press Search jobs.</p>
+      <ul id="list" class="list"></ul>
+    </div>
+  </section>
+
+  <section id="panel-check" role="tabpanel" aria-labelledby="tab-check" class="layout narrow" hidden>
+    <form id="checkForm" class="filters wide">
+      <label>Job title (optional)<input id="cTitle" type="text"></label>
+      <label>Company (optional)<input id="cCompany" type="text"></label>
+      <label>Contact email, number or link (optional)<input id="cContact" type="text"></label>
+      <label>Paste the full job ad<textarea id="cText" rows="9" required></textarea></label>
+      <button class="primary" type="submit">Check this ad</button>
+    </form>
+    <div class="results"><div id="checkOut" aria-live="polite"></div></div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>A high score lowers risk but never removes it. Do not pay to get a job, and confirm the company exists before sharing your ID or banking details.</p>
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>
